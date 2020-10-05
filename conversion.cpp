@@ -21,14 +21,15 @@ int main()
 	invalidCharIndex = date.find_first_not_of("0123456789-");
 	dateLength = date.size();
 
+
 	if ((dashIndex1 == VDI1) &&
 		(dashIndex2 == VDI2) &&
-		(invalidCharIndex == string::npos) &&
+		//(invalidCharIndex == string::npos) &&
 		(dateLength == VALID_D_LENGTH)) {
 		// Extract the year, month and day from the input date
 		year = date.substr(0, dashIndex1);
 		month = date.substr(dashIndex1 + 1, dashIndex2 - dashIndex1 - 1);
-		day = date.substr(dashIndex2, dateLength - dashIndex2 - 1);
+		day = date.substr(dashIndex2+1, dateLength);
 		// Convert the year, month and day to integers
 		yearNum = stoi(year);
 		monthNum = stoi(month);
